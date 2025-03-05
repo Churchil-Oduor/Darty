@@ -1,5 +1,5 @@
 void main() {
-	print('Hello World');
-	print("Hello Dar ty");
+  int? u;
 
+  print("$u");
 }
