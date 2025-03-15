@@ -6,6 +6,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: Padding(
           padding: EdgeInsets.only(right: 400, left: 400),
@@ -14,7 +15,8 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 60),
+
+           
               Image(
                 image: AssetImage("assets/JKUATCU LOGO.png"),
                 width: 100,
@@ -22,6 +24,7 @@ class LoginPage extends StatelessWidget {
               ),
 
               SizedBox(height: 30),
+          
               //Welcome Admin Text
               Text(
                 "Welcome Admin",
@@ -65,9 +68,10 @@ class LoginPage extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () => {},
                   style: ElevatedButton.styleFrom(
-                    elevation: 10,
+                    elevation: 5,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50),
+                      borderRadius: BorderRadius.circular(20),
+                      
                     ),
                   ),
                   child: Text("Login"),
