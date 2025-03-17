@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:web_amin/components/custom_button.dart';
+import 'package:web_amin/components/custom_card.dart';
 
 class AdminPanel extends StatelessWidget {
   AdminPanel({super.key});
@@ -15,13 +17,13 @@ class AdminPanel extends StatelessWidget {
 
   final double radius = 10;
   final double grid_spacing = 10;
-  final double grid_height = 130;
+  final double card_height = 130;
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      backgroundColor: const Color.fromARGB(232, 190, 203, 221),
+      backgroundColor: const Color.fromARGB(232, 166, 177, 192),
       //appBar: AppBar(backgroundColor: Colors.white, elevation: 5),
       body: Row(
         children: [
@@ -67,13 +69,15 @@ class AdminPanel extends StatelessWidget {
                   Text(
                     "View & Manage",
                     style: TextStyle(fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.start,
                   ),
-                  SizedBox(height: 20),
+
+                  SizedBox(height: 10),
                   Flexible(
                     child: ListView(
                       children: [
                         ListTile(
-                          leading: Text("Upcoming Tasks"),
+                          leading: Text("Upcoming Activities"),
                           trailing: Icon(
                             Icons.task_outlined,
                             color: const Color.fromARGB(255, 34, 31, 31),
@@ -81,90 +85,50 @@ class AdminPanel extends StatelessWidget {
                           onTap: () {},
                         ),
                         ListTile(leading: Text("Executive Committee")),
-                        ListTile(leading: Text("Ets & Ministries")),
+                        ListTile(leading: Text("ETs & Ministries")),
                         ListTile(leading: Text("Students & Associates")),
                         ListTile(
-                          leading: Text("Upcoming Events"),
-                          trailing: Icon(
-                            Icons.calendar_month,
-                            color: const Color.fromARGB(255, 34, 31, 31),
-                          ),
-                        ),
-                        ListTile(
-                          leading: Text("Summons"),
-                          trailing: Icon(
-                            Icons.book,
-                            color: const Color.fromARGB(255, 34, 31, 31),
-                          ),
-                        ),
-                        ListTile(
-                          leading: Text("Suggestions Box"),
+                          leading: Text("Suggestion Box"),
                           trailing: Icon(
                             Icons.message_outlined,
                             color: const Color.fromARGB(255, 34, 31, 31),
                           ),
                         ),
 
-                        SizedBox(height: 30),
-
-                        Align(
-                          alignment: Alignment.center,
-                          child: SizedBox(
-                            height: 50,
-                            width: 230,
-
-                            child: Container(
-                              decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [
-                                    const Color.fromARGB(255, 245, 60, 47),
-                                    const Color.fromARGB(255, 141, 12, 3),
-                                  ], // Define your gradient colors
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                ),
-                                borderRadius: BorderRadius.circular(
-                                  8,
-                                ), // Ensure rounded corners
-                              ),
-                              child: ElevatedButton(
-                                onPressed: () {},
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor:
-                                      Colors
-                                          .transparent, // Transparent background
-                                  shadowColor: Colors.black.withOpacity(
-                                    0.5,
-                                  ), // Keep shadow effect
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 20,
-                                    vertical: 12,
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                ),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text("Open Nominations"),
-                                    SizedBox(width: 5),
-                                    Icon(Icons.lock, weight: 10, size: 15),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-
-                        Padding(
-                          padding: EdgeInsets.only(left: 10, top: 20),
-                          child: Text(
-                            "Made By JKUATCU IT",
-                            style: TextStyle(fontSize: 10),
-                          ),
-                        ),
+                        SizedBox(height: 100),
                       ],
+                    ),
+                  ),
+
+                  Align(
+                    alignment: Alignment.bottomCenter,
+
+                    child: SizedBox(
+                      height: 50,
+                      width: 230,
+
+                      ///Nomination Button
+                      child: CustomButton(
+                        button_label: "Open Nominations",
+                        color_grad_1: const Color.fromARGB(255, 245, 60, 47),
+                        color_grad_2:  const Color.fromARGB(255, 141, 12, 3),
+                        onClick: () => {},
+                    
+
+                      ),
+                    ),
+                  ),
+
+                  ///Made by JKUATCU IT team text
+                  Padding(
+                    padding: EdgeInsets.only(left: 22, top: 20, bottom: 10),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Made By JKUATCU IT",
+                        style: TextStyle(fontSize: 10),
+                        textAlign: TextAlign.start,
+                      ),
                     ),
                   ),
                 ],
@@ -201,70 +165,40 @@ class AdminPanel extends StatelessWidget {
                             children: [
                               Expanded(
                                 flex: 1,
-                                child: Container(
-                                  height: grid_height,
-                                  decoration: BoxDecoration(
-                                    color: Colors.amber,
-                                    borderRadius: BorderRadius.circular(radius),
-                                  ),
-
-                                  child: Column(
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(
-                                          top: 10,
-                                          left: 10,
-                                        ),
-                                        child: Row(
-                                          children: [
-                                            Text(
-                                              "Executive Committee",
-                                              style: TextStyle(
-                                                color: const Color.fromARGB(
-                                                  255,
-                                                  245,
-                                                  245,
-                                                  245,
-                                                ),
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 20,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                child: CustomCard(
+                                  card_height: card_height,
+                                  card_color: Colors.amber,
+                                  onClick: () => {print("clicked 1")},
+                                  title: "Executive Committees",
                                 ),
                               ),
                               SizedBox(width: grid_spacing),
                               Expanded(
                                 flex: 1,
-                                child: Container(
-                                  height: grid_height,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(radius),
-                                    color: Colors.blue,
+                                child: CustomCard(
+                                  card_height: card_height,
+                                  card_color: const Color.fromARGB(
+                                    255,
+                                    240,
+                                    55,
+                                    41,
                                   ),
+                                  onClick: () => {print("clicked 2")},
+                                  title: "ETs & Ministries",
                                 ),
                               ),
                               SizedBox(width: grid_spacing),
                               Expanded(
                                 flex: 1,
-                                child: Container(
-                                  height: grid_height,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(radius),
-                                    color: Colors.red,
-                                  ),
+                                child: CustomCard(
+                                  card_height: card_height,
+                                  card_color: Colors.blue,
+                                  onClick: () => print("clicked 3"),
+                                  title: "Students & Associates",
                                 ),
                               ),
                             ],
                           ),
-
-                          ///Grid Row
-                          ///Bottom Task Row
-                          ///Text Field
                         ],
                       ),
                     ),

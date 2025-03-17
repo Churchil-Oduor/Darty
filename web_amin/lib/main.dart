@@ -16,7 +16,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Login Form',
       theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: false),
-      home:  AdminPanel(),
+      home:  LoginPage(),
+      routes: {
+        "/admin_panel": (context) => AdminPanel(),
+        
+      },
     );
   }
 }

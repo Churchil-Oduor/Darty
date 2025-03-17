@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:web_amin/components/custom_button.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +17,6 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-
-           
               Image(
                 image: AssetImage("assets/JKUATCU LOGO.png"),
                 width: 100,
@@ -24,7 +24,7 @@ class LoginPage extends StatelessWidget {
               ),
 
               SizedBox(height: 30),
-          
+
               //Welcome Admin Text
               Text(
                 "Welcome Admin",
@@ -65,16 +65,14 @@ class LoginPage extends StatelessWidget {
               SizedBox(
                 height: 50,
                 width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () => {},
-                  style: ElevatedButton.styleFrom(
-                    elevation: 5,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      
-                    ),
-                  ),
-                  child: Text("Login"),
+                child: CustomButton(
+                  button_label: "Login",
+                  color_grad_1: const Color.fromARGB(255, 3, 131, 236),
+                  color_grad_2: const Color.fromARGB(255, 3, 131, 236),
+                  onClick: () {
+                    Navigator.pushNamed(context, "/admin_panel");
+                    
+                  },
                 ),
               ),
 
