@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'dart:async';
 
-import 'package:tic_tac_toe/pages/arena.dart';
+import 'package:tic_tac_toe/pages/home.dart';
+import 'package:tic_tac_toe/pages/select_level.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -10,15 +12,26 @@ class Splash extends StatefulWidget {
   State<Splash> createState() => _SplashState();
 }
 
-class _SplashState extends State<Splash> {
+class _SplashState extends State<Splash> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () {
-      if (mounted) {
-        
-      }
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+
+    Future.delayed(const Duration(seconds: 10), () async {
+      Navigator.of(
+        context,
+      ).pushReplacement(MaterialPageRoute(builder: (_) => Home()));
     });
+  }
+
+  @override
+  void dispose() {
+    SystemChrome.setEnabledSystemUIMode(
+      SystemUiMode.manual,
+      overlays: SystemUiOverlay.values,
+    );
+    super.dispose();
   }
 
   @override
@@ -29,8 +42,11 @@ class _SplashState extends State<Splash> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image(image: AssetImage("assets/logo.png")),
-            SizedBox(height: 30),
+            Image(
+              image: AssetImage("assets/logo.png"),
+              width: 250,
+              height: 250,
+            ),
             Text("Tic Tac Toe"),
           ],
         ),

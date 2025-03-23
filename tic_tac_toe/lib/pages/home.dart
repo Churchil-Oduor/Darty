@@ -5,16 +5,27 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Home"),),
-      body: ListView(children: [
-        ListTile(leading: Text("New Game"),onTap: () {
-          Navigator.pushNamed(context, "/arena");
-        },),
-        ListTile(leading: Text("Select Level"),),
-        ListTile(leading: Text("Exit"),),
-        ListTile(leading: Text("Developers"),)
-      ],),
+      appBar: AppBar(
+        title: Text("Tic Tac Toe", style: TextStyle(color: Colors.black)),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        elevation: 0,
+      ),
+      body: ListView(
+        children: [
+          ListTile(
+            leading: Text("New Game"),
+            onTap: () {
+              Navigator.pushNamed(context, "/arena");
+            },
+          ),
+          ListTile(
+            leading: Text("Select Level"),
+            onTap: () => Navigator.pushNamed(context, '/select_level'),
+          ),
+          ListTile(leading: Text("Quit")),
+        ],
+      ),
     );
-
   }
 }

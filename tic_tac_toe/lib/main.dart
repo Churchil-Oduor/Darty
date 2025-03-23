@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tic_tac_toe/pages/arena.dart';
 import 'package:tic_tac_toe/pages/home.dart';
+import 'package:tic_tac_toe/pages/select_level.dart';
 import 'package:tic_tac_toe/pages/splash.dart';
 
 void main() {
@@ -16,8 +17,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: false),
-      home: Home(),
-      routes: {"/arena": (context) => Arena()},
+      home: Splash(),
+      routes: {
+        "/arena": (context) => Arena(),
+        "/home": (context) => Home(),
+        "/select_level": (context) => SelectLevel(),
+      },
     );
   }
 }

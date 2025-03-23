@@ -1,96 +1,280 @@
 import 'package:flutter/material.dart';
-import 'package:tic_tac_toe/components/utils.dart';
+import 'package:flutter/widgets.dart';
 
 class Arena extends StatefulWidget {
   const Arena({super.key});
 
   @override
-  State<Arena> createState() => _HomeState();
+  State<Arena> createState() => _ArenaState();
 }
 
-class _HomeState extends State<Arena> {
-  List<String> grid_items = List.filled(9, "");
-  final double radius = 30;
-  bool isPlayerX = true;
-  final String playeO = "O";
-  final String playerX = "X";
-
-  void _handleTap(int index) {
-    if (grid_items[index] == "") {
-      setState(() {
-        grid_items[index] = isPlayerX ? playerX : playeO;
-        isPlayerX = !isPlayerX;
-      });
-    }
-  }
-
-  void _refresh() {
-    setState(() {
-      grid_items.fillRange(0, 9, "");
-    });
-  }
-
+class _ArenaState extends State<Arena> {
+  final Color border_color = const Color.fromARGB(255, 80, 79, 79);
+  final Color tile_color = Colors.white;
+  final double border_width = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Tic Tac Toe")),
+      appBar: AppBar(
+        title: Text(''),
+        backgroundColor: Colors.white,
+        elevation: 0,
+      ),
+      backgroundColor: Colors.white,
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Center(
+          Expanded(
+            flex: 1,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text(
-                  "You\n score",
-                  style: TextStyle(fontWeight: FontWeight.w100, fontSize: 40),
+                Expanded(
+                  flex: 1,
+                  child: Column(
+                    children: [
+                      Text('Crabby'),
+                      SizedBox(height: 10),
+                      Image.asset('assets/logo.png'),
+                      Text('Score: 0'),
+                    ],
+                  ),
                 ),
-                SizedBox(width: 20),
-                Text(
-                  "Vs",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                ),
-                SizedBox(width: 20),
-                Text(
-                  "Carl\n score",
-                  style: TextStyle(fontWeight: FontWeight.w100, fontSize: 40),
+
+                Expanded(flex: 1, child: Column(children: [Text('VS')])),
+
+                Expanded(
+                  flex: 1,
+                  child: Column(
+                    children: [
+                      Text('Crabby'),
+                      SizedBox(height: 10),
+                      Image.asset('assets/logo.png'),
+                      Text('Score: 0'),
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
 
-          SizedBox(height: 50),
-          GridView.builder(
-            shrinkWrap: true,
-            itemCount: 9,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-            ),
-            itemBuilder: (context, index) {
-              return GestureDetector(
-                onTap: () => _handleTap(index),
-                child: Container(
-                  margin: EdgeInsets.all(2),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(radius)),
-                    color: Colors.purple,
-                  ),
-                  child: Center(
-                    child: Text(
-                      grid_items[index],
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 60,
-                        fontWeight: FontWeight.bold,
+          ///Grid down here
+          Expanded(
+            flex: 3,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Container(
+                color: Colors.amber,
+                child: Center(
+                  child: Column(
+                    children: [
+                      //Row1
+                      Expanded(
+                        flex: 1,
+                        child: Container(
+                          color: Colors.green,
+                          child: Row(
+                            children: [
+                              //R1 col1
+                              Expanded(
+                                flex: 1,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: tile_color,
+                                    border: Border(
+                                      right: BorderSide(
+                                        color: border_color,
+                                        width: border_width,
+                                      ),
+                                      bottom: BorderSide(
+                                        color: border_color,
+                                        width: border_width,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+
+                              //Row1 Col2
+                              Expanded(
+                                flex: 1,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: tile_color,
+                                    border: Border(
+                                      bottom: BorderSide(
+                                        color: border_color,
+                                        width: border_width,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+
+                              //Row1 COl3
+                              Expanded(
+                                flex: 1,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: tile_color,
+                                    border: Border(
+                                      bottom: BorderSide(
+                                        color: border_color,
+                                        width: border_width,
+                                      ),
+                                      left: BorderSide(
+                                        color: border_color,
+                                        width: border_width,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
+                      //Row2
+                      Expanded(
+                        flex: 1,
+                        child: Container(
+                          color: Colors.red,
+                          child: Row(
+                            children: [
+                              //R2 Col1
+                              Expanded(
+                                flex: 1,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: tile_color,
+                                    border: Border(
+                                      right: BorderSide(
+                                        color: border_color,
+                                        width: border_width,
+                                      ),
+                                      bottom: BorderSide(
+                                        color: border_color,
+                                        width: border_width,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              //R2 Col2
+                              Expanded(
+                                flex: 1,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: tile_color,
+                                    border: Border(
+                                      bottom: BorderSide(
+                                        color: border_color,
+                                        width: border_width,
+                                      ),
+                                    ),
+
+                                    ///
+                                  ),
+                                ),
+                              ),
+                              //R2 Col3
+                              Expanded(
+                                flex: 1,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: tile_color,
+                                    border: Border(
+                                      left: BorderSide(
+                                        color: border_color,
+                                        width: border_width,
+                                      ),
+                                      bottom: BorderSide(
+                                        color: border_color,
+                                        width: border_width,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      //Row3
+                      Expanded(
+                        flex: 1,
+                        child: Container(
+                          color: Colors.deepPurple,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: tile_color,
+                                    border: Border(
+                                      right: BorderSide(
+                                        color: border_color,
+                                        width: border_width,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: tile_color,
+                                    border: Border(
+                                      right: BorderSide(color: border_color),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: tile_color,
+                                    border: Border(
+                                      left: BorderSide(
+                                        color: border_color,
+                                        width: border_width,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+
+          Expanded(
+            flex: 1,
+            child: Padding(
+              padding: const EdgeInsets.all(45.0),
+              child: Container(
+                color: Colors.amber,
+                width: 400,
+                child: Container(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/home');
+                    },
+                    child: Text('Exit'),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: border_color,
+                      foregroundColor: tile_color,
                     ),
                   ),
                 ),
-              );
-            },
+              ),
+            ),
           ),
-
-          ElevatedButton(onPressed: _refresh, child: Text("Refresh")),
         ],
       ),
     );
