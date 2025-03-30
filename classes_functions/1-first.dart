@@ -12,6 +12,5 @@ class Person {
 void main() {
 	Person p1 = Person("Churchil", 24);
 	p1.greet();
-
-
+  
 }

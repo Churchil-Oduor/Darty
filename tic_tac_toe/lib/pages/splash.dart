@@ -18,7 +18,7 @@ class _SplashState extends State<Splash> with SingleTickerProviderStateMixin {
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
-    Future.delayed(const Duration(seconds: 10), () async {
+    Future.delayed(const Duration(seconds: 9), () async {
       Navigator.of(
         context,
       ).pushReplacement(MaterialPageRoute(builder: (_) => Home()));
