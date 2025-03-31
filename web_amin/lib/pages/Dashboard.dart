@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:web_amin/components/custom_button.dart';
 import 'package:web_amin/components/custom_card.dart';
 import 'package:web_amin/components/side_panel.dart';
 
-class AdminPanel extends StatelessWidget {
-  AdminPanel({super.key});
+class Dashboard extends StatelessWidget {
+  Dashboard({super.key});
 
   final List items = [
     "Upcoming Tasks",

@@ -8,33 +8,49 @@ class CustomCard extends StatelessWidget {
   final VoidCallback onClick;
   final String title;
 
-
   const CustomCard({
     super.key,
     required this.card_height,
     required this.card_color,
     required this.onClick,
     required this.title,
-
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: card_height,
       width: 40,
-      child: Material(
-        elevation: 3,
-        borderRadius: BorderRadius.circular(radius),
-        color: card_color,
-        child: InkWell(
-          onTap: () {},
-          borderRadius: BorderRadius.circular(radius),
-          child: Padding(
-            padding: EdgeInsets.all(radius * 2),
-            child: Text(title, style: TextStyle(color: Colors.white)),
+      child: Stack(
+        children: [
+          Container(color: card_color),
+
+          Positioned(
+            left: 0,
+            right: 0,
+            //this container should fill the container in width
+            child: Container(
+              height: card_height - 20,
+              color: card_color,
+              child: Material(
+                elevation: 3,
+                color: card_color,
+                child: InkWell(
+                  onTap: () {},
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: Column(
+                      children: [
+                        Text(title),
+                      ],
+                    ),
+
+                  ),
+                ),
+              ),
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

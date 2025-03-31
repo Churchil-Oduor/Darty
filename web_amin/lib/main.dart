@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:web_amin/pages/admin_panel.dart';
+import 'package:web_amin/pages/Dashboard.dart';
 import 'package:web_amin/pages/login_page.dart';
 
 void main() {
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: false),
       home:  LoginPage(),
       routes: {
-        "/admin_panel": (context) => AdminPanel(),
+        "/admin_panel": (context) => Dashboard(),
         
       },
     );
