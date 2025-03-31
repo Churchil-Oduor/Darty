@@ -59,6 +59,8 @@ flutter:
   uses-material-design: true
   assets:
     - assets/JKUATCU LOGO.png
+    - assets/calender.png
+    - assets/copyright.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

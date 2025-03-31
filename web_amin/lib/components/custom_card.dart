@@ -23,28 +23,42 @@ class CustomCard extends StatelessWidget {
       width: 40,
       child: Stack(
         children: [
-          Container(color: card_color),
+          // This one (Container with rounded corners)
+          Container(
+            decoration: BoxDecoration(
+              color: card_color,
+              borderRadius: BorderRadius.circular(radius), // Rounded corners
+            ),
+          ),
 
           Positioned(
             left: 0,
             right: 0,
-            //this container should fill the container in width
             child: Container(
               height: card_height - 20,
-              color: card_color,
-              child: Material(
-                elevation: 3,
+              decoration: BoxDecoration(
                 color: card_color,
+                borderRadius: BorderRadius.circular(radius), // Rounded corners
+              ),
+              child: Material(
+                elevation: 1.3,
+                color: card_color,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(radius),
+                  topRight: Radius.circular(radius),
+                ),
                 child: InkWell(
-                  onTap: () {},
+                  onTap: onClick,
+                  borderRadius: BorderRadius.circular(
+                    radius,
+                  ), // Rounded corners
                   child: Padding(
-                    padding: EdgeInsets.only(left: 10),
+                    padding: const EdgeInsets.only(left: 10),
                     child: Column(
                       children: [
-                        Text(title),
+                        ////Will Add text later on
                       ],
                     ),
-
                   ),
                 ),
               ),
