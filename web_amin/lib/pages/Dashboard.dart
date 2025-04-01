@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:web_amin/components/custom_card.dart';
 import 'package:web_amin/components/dashboard_table.dart';
 import 'package:web_amin/components/side_panel.dart';
+import 'package:web_amin/components/CustomPopup.dart';
+
+
+
+
+
 
 class Dashboard extends StatelessWidget {
   Dashboard({super.key});
@@ -20,9 +26,8 @@ class Dashboard extends StatelessWidget {
   final double grid_spacing = 10;
   final double card_height = 130;
 
-  void tapped() {
-    print("I have been tapped");
-  }
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -61,9 +66,12 @@ class Dashboard extends StatelessWidget {
                   Container(
                     color: Colors.white,
                     height: 60,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [Icon(Icons.notifications_none)],
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 30),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [Icon(Icons.notifications_none)],
+                      ),
                     ),
                   ),
 
@@ -116,7 +124,9 @@ class Dashboard extends StatelessWidget {
                                 child: CustomCard(
                                   card_height: card_height,
                                   card_color: Colors.blue,
-                                  onClick: () => print("clicked 3"),
+                                  onClick: () => {
+                                    showDialogBox(context)
+                                  },
                                   title: "Students & Associates",
                                 ),
                               ),

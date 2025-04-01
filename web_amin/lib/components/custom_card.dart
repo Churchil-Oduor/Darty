@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const double radius = 10;
+const double radius = 7;
 
 class CustomCard extends StatelessWidget {
   final Color card_color;

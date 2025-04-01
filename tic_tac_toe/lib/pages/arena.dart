@@ -12,6 +12,8 @@ class _ArenaState extends State<Arena> {
   final Color border_color = const Color.fromARGB(255, 80, 79, 79);
   final Color tile_color = Colors.white;
   final double border_width = 1;
+  List<String> board = List.filled(9, "");
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,179 +72,248 @@ class _ArenaState extends State<Arena> {
                       //Row1
                       Expanded(
                         flex: 1,
-                        child: Container(
-                          color: Colors.green,
-                          child: Row(
-                            children: [
-                              //R1 col1
-                              Expanded(
-                                flex: 1,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: tile_color,
-                                    border: Border(
-                                      right: BorderSide(
-                                        color: border_color,
-                                        width: border_width,
+                        child: GestureDetector(
+                          onTap: () {
+                            if (board[0] == "") {
+                              setState(() {
+                                board[0] = "X";
+                              });
+                            }
+                          },
+                          child: Container(
+                            color: Colors.green,
+                            child: Row(
+                              children: [
+                                //R1 col1
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: tile_color,
+                                      border: Border(
+                                        right: BorderSide(
+                                          color: border_color,
+                                          width: border_width,
+                                        ),
+                                        bottom: BorderSide(
+                                          color: border_color,
+                                          width: border_width,
+                                        ),
                                       ),
-                                      bottom: BorderSide(
-                                        color: border_color,
-                                        width: border_width,
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        "X",
+                                        style: TextStyle(fontSize: 30),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
 
-                              //Row1 Col2
-                              Expanded(
-                                flex: 1,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: tile_color,
-                                    border: Border(
-                                      bottom: BorderSide(
-                                        color: border_color,
-                                        width: border_width,
+                                //Row1 Col2
+                                Expanded(
+                                  flex: 1,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      if (board[1] == "") {
+                                        setState(() {
+                                          board[1] = "X";
+                                        });
+                                      }
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: tile_color,
+                                        border: Border(
+                                          bottom: BorderSide(
+                                            color: border_color,
+                                            width: border_width,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
 
-                              //Row1 COl3
-                              Expanded(
-                                flex: 1,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: tile_color,
-                                    border: Border(
-                                      bottom: BorderSide(
-                                        color: border_color,
-                                        width: border_width,
-                                      ),
-                                      left: BorderSide(
-                                        color: border_color,
-                                        width: border_width,
+                                //Row1 COl3
+                                Expanded(
+                                  flex: 1,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      if (board[2] == "") {
+                                        setState(() {
+                                          board[2] = "X";
+                                        });
+                                      }
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: tile_color,
+                                        border: Border(
+                                          bottom: BorderSide(
+                                            color: border_color,
+                                            width: border_width,
+                                          ),
+                                          left: BorderSide(
+                                            color: border_color,
+                                            width: border_width,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
                       //Row2
                       Expanded(
                         flex: 1,
-                        child: Container(
-                          color: Colors.red,
-                          child: Row(
-                            children: [
-                              //R2 Col1
-                              Expanded(
-                                flex: 1,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: tile_color,
-                                    border: Border(
-                                      right: BorderSide(
-                                        color: border_color,
-                                        width: border_width,
-                                      ),
-                                      bottom: BorderSide(
-                                        color: border_color,
-                                        width: border_width,
+                        child: GestureDetector(
+                          onTap: () {
+                            if (board[3] == "") {
+                              setState(() {
+                                board[3] = "X";
+                              });
+                            }
+                          },
+                          child: Container(
+                            color: Colors.red,
+                            child: Row(
+                              children: [
+                                //R2 Col1
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: tile_color,
+                                      border: Border(
+                                        right: BorderSide(
+                                          color: border_color,
+                                          width: border_width,
+                                        ),
+                                        bottom: BorderSide(
+                                          color: border_color,
+                                          width: border_width,
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              //R2 Col2
-                              Expanded(
-                                flex: 1,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: tile_color,
-                                    border: Border(
-                                      bottom: BorderSide(
-                                        color: border_color,
-                                        width: border_width,
-                                      ),
-                                    ),
+                                //R2 Col2
+                                Expanded(
+                                  flex: 1,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      if (board[4] == "") {
+                                        setState(() {
+                                          board[4] = "X";
+                                        });
+                                      }
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: tile_color,
+                                        border: Border(
+                                          bottom: BorderSide(
+                                            color: border_color,
+                                            width: border_width,
+                                          ),
+                                        ),
 
-                                    ///
-                                  ),
-                                ),
-                              ),
-                              //R2 Col3
-                              Expanded(
-                                flex: 1,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: tile_color,
-                                    border: Border(
-                                      left: BorderSide(
-                                        color: border_color,
-                                        width: border_width,
-                                      ),
-                                      bottom: BorderSide(
-                                        color: border_color,
-                                        width: border_width,
+                                        ///
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
+                                //R2 Col3
+                                Expanded(
+                                  flex: 1,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      if (board[5] == "") {
+                                        setState(() {
+                                          board[5] = "X";
+                                        });
+                                      }
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: tile_color,
+                                        border: Border(
+                                          left: BorderSide(
+                                            color: border_color,
+                                            width: border_width,
+                                          ),
+                                          bottom: BorderSide(
+                                            color: border_color,
+                                            width: border_width,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
                       //Row3
                       Expanded(
                         flex: 1,
-                        child: Container(
-                          color: Colors.deepPurple,
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: tile_color,
-                                    border: Border(
-                                      right: BorderSide(
-                                        color: border_color,
-                                        width: border_width,
+                        child: GestureDetector(
+                          onTap: () {
+                            if (board[6] == "") {
+                              setState(() {
+                                board[6] = "X";
+                              });
+                            }
+                          },
+                          child: Container(
+                            color: Colors.deepPurple,
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: tile_color,
+                                      border: Border(
+                                        right: BorderSide(
+                                          color: border_color,
+                                          width: border_width,
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              Expanded(
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: tile_color,
-                                    border: Border(
-                                      right: BorderSide(color: border_color),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: tile_color,
-                                    border: Border(
-                                      left: BorderSide(
-                                        color: border_color,
-                                        width: border_width,
+                                Expanded(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: tile_color,
+                                      border: Border(
+                                        right: BorderSide(color: border_color),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
+                                Expanded(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: tile_color,
+                                      border: Border(
+                                        left: BorderSide(
+                                          color: border_color,
+                                          width: border_width,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
