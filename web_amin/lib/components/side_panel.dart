@@ -87,6 +87,7 @@ class _SidePanelState extends State<SidePanel> {
                 button_label: "Open Nominations",
                 color_grad_1: const Color.fromARGB(255, 245, 60, 47),
                 color_grad_2: const Color.fromARGB(255, 141, 12, 3),
+                border_radius: 8,
                 onClick: () => {},
               ),
             ),

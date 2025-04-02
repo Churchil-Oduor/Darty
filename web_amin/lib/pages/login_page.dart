@@ -69,6 +69,7 @@ class LoginPage extends StatelessWidget {
                   button_label: "Login",
                   color_grad_1: const Color.fromARGB(255, 3, 131, 236),
                   color_grad_2: const Color.fromARGB(255, 3, 131, 236),
+                  border_radius: 8,
                   onClick: () {
                     Navigator.pushNamed(context, "/admin_panel");
                     

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class CustomButton extends StatelessWidget {
   final String button_label;
   final Color color_grad_1, color_grad_2;
+  final double border_radius;
   final VoidCallback onClick;
 
   const CustomButton({
@@ -12,6 +13,7 @@ class CustomButton extends StatelessWidget {
     required this.color_grad_1,
     required this.color_grad_2,
     required this.onClick,
+    required this.border_radius
   });
 
   @override
@@ -19,11 +21,11 @@ class CustomButton extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [color_grad_1, color_grad_2], // Define your gradient colors
+          colors: [color_grad_1, color_grad_2],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
-        borderRadius: BorderRadius.circular(8), // Ensure rounded corners
+        borderRadius: BorderRadius.circular(border_radius), // Ensure rounded corners
       ),
       child: ElevatedButton(
         onPressed: onClick,
@@ -41,4 +43,3 @@ class CustomButton extends StatelessWidget {
     );
   }
 }
-
