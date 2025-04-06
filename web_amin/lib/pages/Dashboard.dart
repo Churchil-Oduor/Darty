@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:web_amin/components/Forms.dart';
-import 'package:web_amin/components/general_dashboard.dart';
+import 'package:web_amin/components/forms/Forms.dart';
 import 'package:web_amin/components/side_panel.dart';
+import 'package:web_amin/components/work_area.dart';
 
 class Dashboard extends StatefulWidget {
   Dashboard({super.key});
@@ -12,7 +12,7 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  String tableState = "tasks";
+  String table_id = "tasks";
   String display = "general";
 
   dynamic updateDisplay(String update) {
@@ -25,10 +25,8 @@ class _DashboardState extends State<Dashboard> {
     "Upcoming Tasks",
     "Executive Committee",
     "ETs & Ministries",
-    "Students & Associates",
-    "Upcoming Events",
-    "Summons",
-    "Suggestions",
+    "Accounts",
+    "Messages",
   ];
 
   final List<List<String>> UpcomingTasks = [
@@ -62,20 +60,13 @@ class _DashboardState extends State<Dashboard> {
           Expanded(
             flex: 1,
             child: SidePanel(
-              items: [
-                "Upcoming Tasks",
-                "Executive Committee",
-                "ETs & Ministries",
-                "Accounts",
-                "Suggestions",
-              ],
-
+              items: items,
               SelectedItem: (selecteditem) {
                 switch (selecteditem) {
                   case "Upcoming Tasks":
                     {
                       setState(() {
-                        tableState = "tasks";
+                        table_id = "tasks";
                         display = "general";
                       });
                     }
@@ -83,85 +74,40 @@ class _DashboardState extends State<Dashboard> {
                   case "Executive Committee":
                     {
                       setState(() {
-                        tableState = "exec";
+                        table_id = "exec";
                       });
                     }
                     break;
                   case "ETs & Ministries":
-                    {}
+                    {
+                      setState(() {
+                        table_id = "ets&ministries";
+                      });
+                  
+                    }
                     break;
                   case "Accounts":
-                    {}
+                    {
+                      setState(() {
+                        table_id = "accounts";
+                      });
+                    }
                     break;
 
                   case "Suggestions":
-                    {}
+                    {
+                      setState(() {
+                        table_id = "msgs";
+                      });
+                    }
                     break;
                 }
               },
             ),
           ),
 
-          ///The Dashboard is defined here
-          //
-          //
-          Expanded(
-            flex: 4,
-            child: Container(
-              color: const Color.fromARGB(255, 246, 248, 248),
-              child: Column(
-                children: [
-                  Container(
-                    color: Colors.white,
-                    height: 60,
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 30),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [Icon(Icons.notifications_none)],
-                      ),
-                    ),
-                  ),
-
-                  ///creating the Grid view
-                  ///
-                  display == "general"
-                      ? GeneralDashboard(
-                        updateDisplay: (p0) {
-                          setState(() {
-                            display = p0;
-                          });
-                        },
-                        items: items,
-                        tableState: tableState,
-                        upcomingTasks: UpcomingTasks,
-                        leadersTable: LeadersTable,
-                      )
-                      : ExecForm(),
-
-                  Spacer(),
-
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          "assets/copyright.png",
-                          height: 20,
-                          width: 20,
-                        ),
-                        Text(
-                          "Copy Right JKUATCU 2025",
-                          style: TextStyle(fontSize: 10),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          ///Work Area
+          Expanded(flex: 4, child: WorkArea(table_id: table_id)),
         ],
       ),
     );

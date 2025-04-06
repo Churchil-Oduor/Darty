@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:web_amin/components/custom_button.dart';
+import 'package:web_amin/components/utils/custom_button.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});

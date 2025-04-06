@@ -1,0 +1,49 @@
+import 'package:flutter/material.dart';
+import 'package:web_amin/components/utils/custom_card.dart';
+
+class CardRow extends StatelessWidget {
+  const CardRow({super.key});
+
+  final double radius = 10;
+  final double grid_spacing = 10;
+  final double card_height = 130;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 10.0, left: 8, right: 8, bottom: 10),
+      child: Row(
+        children: [
+          Expanded(
+            flex: 1,
+            child: CustomCard(
+              card_height: card_height,
+              card_color: Colors.amber,
+              onClick: () => {print("clicked 1")},
+              title: "Executive Committees",
+            ),
+          ),
+          SizedBox(width: grid_spacing),
+          Expanded(
+            flex: 1,
+            child: CustomCard(
+              card_height: card_height,
+              card_color: const Color.fromARGB(255, 240, 55, 41),
+              onClick: () => {print("clicked 2")},
+              title: "ETs & Ministries",
+            ),
+          ),
+          SizedBox(width: grid_spacing),
+          Expanded(
+            flex: 1,
+            child: CustomCard(
+              card_height: card_height,
+              card_color: Colors.blue,
+              onClick: () => {},
+              title: "Students & Associates",
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
