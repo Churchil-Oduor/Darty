@@ -10,7 +10,13 @@ class EtsMinSubcom extends StatefulWidget {
   State<EtsMinSubcom> createState() => _EtsMinSubcomState();
 }
 
-List<String> option = ["ets", "ministries", "subcom"];
+List<String> option = [
+  "Evangelistic Teams (ET)",
+  "Ministries",
+  "Sub-committees",
+];
+
+List<String> table_title = ["Name", "Action"];
 
 class _EtsMinSubcomState extends State<EtsMinSubcom> {
   String optionSelected = option[0];
@@ -31,10 +37,11 @@ class _EtsMinSubcomState extends State<EtsMinSubcom> {
               child: Column(
                 children: [
                   const Padding(
-                    padding: EdgeInsets.only(top: 10.0),
+                    padding: EdgeInsets.only(top: 15.0),
                     child: Text(
                       "Select What to Manage",
-                      style: TextStyle(fontWeight: FontWeight.bold),
+
+                      /// style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
 
@@ -98,11 +105,71 @@ class _EtsMinSubcomState extends State<EtsMinSubcom> {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(border_radius),
               ),
-              child: Center(
-                child: Text(
-                  "Selected: $optionSelected",
-                  style: const TextStyle(fontSize: 18),
-                ),
+              child: Column(
+                
+                children: [
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Text("$optionSelected"),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30),
+                    child: Table(
+                      border: null,
+                      columnWidths: const {
+                        0: FlexColumnWidth(),
+                        1: FlexColumnWidth(),
+                      },
+                      defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                      children: [
+                        TableRow(
+                          children: [Text(table_title[0]), Text(table_title[1])],
+                        ),
+                        ...List.generate(
+                          4,
+                          (value) => TableRow(
+                            children: [
+                              
+                              TableCell(child: Text("South Rift Evangelistic Team")),
+                              TableCell(
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 5,
+                                  ),
+                                  child: Align(
+                                    alignment:
+                                        Alignment
+                                            .centerLeft, // or centerRight, as you prefer
+                                    child: ElevatedButton(
+                                      onPressed: () {},
+                                      style: ElevatedButton.styleFrom(
+                                        minimumSize: Size(
+                                          80,
+                                          33,
+                                        ), // width, height
+                                        padding: EdgeInsets.symmetric(
+                                          horizontal: 12,
+                                        ),
+                                      ),
+                                      child: Text(
+                                        "Manage",
+                                        style: TextStyle(fontSize: 10),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
