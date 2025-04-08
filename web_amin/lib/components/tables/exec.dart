@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:web_amin/components/utils/CustomPopup.dart';
+import 'package:web_amin/components/work_area.dart';
 
 const double table_pad = 30;
 const double border_radius = 10;
 const double table_title_font_size = 20;
 
 class MainExec extends StatelessWidget {
-  MainExec({super.key});
-  final List<String> table_title = [
-    "Executive Committee Members",
-  ];
+  final Function(AREA, String) manageDisplay;
+  MainExec({super.key, required this.manageDisplay});
+  final List<String> table_title = ["Executive Committee Members"];
 
   final List<String> dummy_table_colms = [
     "Position",
@@ -22,7 +22,7 @@ class MainExec extends StatelessWidget {
     "ChairPerson",
     "Vice ChairPerson",
     "Treasurer",
-    "Missions Co-ordinator"
+    "Missions Co-ordinator",
   ];
   @override
   Widget build(BuildContext context) {
@@ -89,7 +89,7 @@ class MainExec extends StatelessWidget {
                                       .centerLeft, // or centerRight, as you prefer
                               child: ElevatedButton(
                                 onPressed: () {
-                                  showDialogBox(context);
+                                  manageDisplay(AREA.form, "main_exec_form");
                                 },
                                 style: ElevatedButton.styleFrom(
                                   minimumSize: Size(80, 33), // width, height

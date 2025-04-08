@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:web_amin/components/tables/ets_subcom_min.dart';
-import 'package:web_amin/components/tables/messages.dart';
+import 'package:web_amin/components/forms/Forms.dart';
 import 'package:web_amin/components/utils/card_row.dart';
 import 'package:web_amin/components/utils/footer.dart';
 import 'package:web_amin/components/table_section.dart';
 import 'package:web_amin/components/utils/top_panel.dart';
 
-enum AREA { work_area, main_exec_form }
+enum AREA { work_area, form }
 
 class WorkArea extends StatefulWidget {
   final String table_id;
+
   WorkArea({super.key, required this.table_id});
 
   @override
@@ -17,18 +17,19 @@ class WorkArea extends StatefulWidget {
 }
 
 class _WorkAreaState extends State<WorkArea> {
-  final double radius = 10;
+  AREA display = AREA.work_area;
+  String form_id = "";
 
-  final double grid_spacing = 10;
+  void manageDisplay(AREA managearea, String formID) {
+    setState(() {
+      display = managearea;
+      form_id = formID;
+    });
 
-  final double card_height = 130;
-
-  ///tweaking this section for a while
-  AREA display = AREA.main_exec_form;
+  }
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Container(
       color: const Color.fromARGB(255, 235, 234, 234),
       child: Column(
@@ -45,11 +46,14 @@ class _WorkAreaState extends State<WorkArea> {
                         Expanded(flex: 4, child: CardRow()),
                         Expanded(
                           flex: 4,
-                          child: TableSection(table_id: widget.table_id),
+                          child: TableSection(
+                            table_id: widget.table_id,
+                            manageDisplay: manageDisplay,
+                          ),
                         ),
                       ],
                     )
-                    : Messages(),
+                    : Forms(form_id: form_id),
           ),
 
           Expanded(flex: 1, child: Footer()),
