@@ -4,28 +4,28 @@ import 'package:web_amin/components/utils/card_row.dart';
 import 'package:web_amin/components/utils/footer.dart';
 import 'package:web_amin/components/table_section.dart';
 import 'package:web_amin/components/utils/top_panel.dart';
+import 'package:web_amin/pages/Dashboard.dart';
 
-enum AREA { work_area, form }
 
 class WorkArea extends StatefulWidget {
   final String table_id;
+   AREA display;
 
-  WorkArea({super.key, required this.table_id});
+  WorkArea({super.key, required this.table_id, required this.display});
 
   @override
   State<WorkArea> createState() => _WorkAreaState();
 }
 
 class _WorkAreaState extends State<WorkArea> {
-  AREA display = AREA.work_area;
+
   String form_id = "";
 
   void manageDisplay(AREA managearea, String formID) {
     setState(() {
-      display = managearea;
+      widget.display = managearea;
       form_id = formID;
     });
-
   }
 
   @override
@@ -40,7 +40,7 @@ class _WorkAreaState extends State<WorkArea> {
           Expanded(
             flex: 8,
             child:
-                display == AREA.work_area
+                widget.display == AREA.work_area
                     ? Column(
                       children: [
                         Expanded(flex: 4, child: CardRow()),

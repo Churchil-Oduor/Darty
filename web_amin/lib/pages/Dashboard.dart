@@ -4,6 +4,8 @@ import 'package:web_amin/components/forms/ExecForm.dart';
 import 'package:web_amin/components/side_panel.dart';
 import 'package:web_amin/components/work_area.dart';
 
+
+enum AREA { work_area, form }
 class Dashboard extends StatefulWidget {
   Dashboard({super.key});
 
@@ -13,13 +15,6 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   String table_id = "tasks";
-  String display = "general";
-
-  dynamic updateDisplay(String update) {
-    setState(() {
-      display = update;
-    });
-  }
 
   final List<String> items = [
     "Upcoming Tasks",
@@ -44,10 +39,7 @@ class _DashboardState extends State<Dashboard> {
   ];
 
   final double radius = 10;
-
-  final double grid_spacing = 10;
-
-  final double card_height = 130;
+  AREA display = AREA.work_area;
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +59,6 @@ class _DashboardState extends State<Dashboard> {
                     {
                       setState(() {
                         table_id = "tasks";
-                        display = "general";
                       });
                     }
                     break;
@@ -83,7 +74,6 @@ class _DashboardState extends State<Dashboard> {
                       setState(() {
                         table_id = "ets&ministries";
                       });
-                  
                     }
                     break;
                   case "Accounts":
@@ -107,9 +97,10 @@ class _DashboardState extends State<Dashboard> {
           ),
 
           ///Work Area
-          Expanded(flex: 4, child: WorkArea(table_id: table_id)),
+          Expanded(flex: 4, child: WorkArea(table_id: table_id, display: this.display,)),
         ],
       ),
     );
   }
 }
+
