@@ -10,7 +10,7 @@ class CardRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 10.0, left: 8, right: 8, bottom: 10),
+      padding: const EdgeInsets.only(top: 10.0, left: 20, right: 20, bottom: 10),
       child: Row(
         children: [
           Expanded(

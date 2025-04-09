@@ -30,8 +30,8 @@ class _SidePanelState extends State<SidePanel> {
               children: [
                 Image(
                   image: AssetImage("assets/JKUATCU LOGO.png"),
-                  height: 70,
-                  width: 70,
+                  height: 60,
+                  width: 60,
                 ),
                 SizedBox(width: 10),
                 Column(
@@ -49,11 +49,18 @@ class _SidePanelState extends State<SidePanel> {
           ),
 
           //space inbetween the Padding and the Text
+          SizedBox(height: 25),
+
+          Padding(
+            padding: const EdgeInsets.only(left: 10.0),
+            child: Row(
+              children: [
+                Text("View & Manage", style: TextStyle(fontWeight: FontWeight.bold)),
+              ],
+            ),
+          ),
+
           SizedBox(height: 20),
-
-          Text("View & Manage", style: TextStyle(fontWeight: FontWeight.bold)),
-
-          SizedBox(height: 10),
           Flexible(
             child: ListView.builder(
               itemCount: widget.items.length,

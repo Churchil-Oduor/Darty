@@ -10,7 +10,7 @@ const double table_title_font_size = 20;
 class MainExec extends StatelessWidget {
   final Function(AREA, String) manageDisplay;
   MainExec({super.key, required this.manageDisplay});
-  final List<String> table_title = ["Executive Committee Members"];
+  final List<String> table_title = ["Members of the Executive Committee"];
 
   final List<String> dummy_table_colms = [
     "Position",
