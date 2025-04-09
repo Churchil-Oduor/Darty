@@ -17,7 +17,7 @@ class CardRow extends StatelessWidget {
             flex: 1,
             child: CustomCard(
               card_height: card_height,
-              card_color: Colors.amber,
+              card_color: const Color.fromARGB(255, 240, 55, 41),
               onClick: () => {print("clicked 1")},
               title: "Executive Committees",
               details: "\n\n\nMain                        10 members",
@@ -28,7 +28,7 @@ class CardRow extends StatelessWidget {
             flex: 1,
             child: CustomCard(
               card_height: card_height,
-              card_color: const Color.fromARGB(255, 240, 55, 41),
+              card_color: Colors.amber,
               onClick: () => {print("clicked 2")},
               title: "ETs & Ministries",
               details:
