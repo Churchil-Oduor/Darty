@@ -6,10 +6,9 @@ import 'package:web_amin/components/table_section.dart';
 import 'package:web_amin/components/utils/top_panel.dart';
 import 'package:web_amin/pages/Dashboard.dart';
 
-
 class WorkArea extends StatefulWidget {
   final String table_id;
-   AREA display;
+  AREA display;
 
   WorkArea({super.key, required this.table_id, required this.display});
 
@@ -18,7 +17,6 @@ class WorkArea extends StatefulWidget {
 }
 
 class _WorkAreaState extends State<WorkArea> {
-
   String form_id = "";
 
   void manageDisplay(AREA managearea, String formID) {
@@ -30,6 +28,9 @@ class _WorkAreaState extends State<WorkArea> {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.table_id == "msgs") {
+      form_id = "msgs";
+    }
     return Container(
       color: const Color.fromARGB(255, 235, 234, 234),
       child: Column(

@@ -7,13 +7,15 @@ class CustomCard extends StatelessWidget {
   final double card_height;
   final VoidCallback onClick;
   final String title;
+  final String details;
 
-  const CustomCard({
+  CustomCard({
     super.key,
     required this.card_height,
     required this.card_color,
     required this.onClick,
     required this.title,
+    required this.details
   });
 
   @override
@@ -23,11 +25,10 @@ class CustomCard extends StatelessWidget {
       width: 40,
       child: Stack(
         children: [
-          // This one (Container with rounded corners)
           Container(
             decoration: BoxDecoration(
               color: card_color,
-              borderRadius: BorderRadius.circular(radius), // Rounded corners
+              borderRadius: BorderRadius.circular(radius),
             ),
           ),
 
@@ -38,7 +39,7 @@ class CustomCard extends StatelessWidget {
               height: card_height - 20,
               decoration: BoxDecoration(
                 color: card_color,
-                borderRadius: BorderRadius.circular(radius), // Rounded corners
+                borderRadius: BorderRadius.circular(radius),
               ),
               child: Material(
                 elevation: 1.3,
@@ -56,7 +57,37 @@ class CustomCard extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 10),
                     child: Column(
                       children: [
-                        ////Will Add text later on
+                        Padding(
+                          padding: const EdgeInsets.only(top: 15.0, left: 0),
+                          child: Row(
+                            children: [
+                              Text(
+                                title,
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Color.fromARGB(250, 255, 255, 255),
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+
+                        Padding(
+                          padding: const EdgeInsets.only(top: 15.0, left: 0),
+                          child: Row(
+                            children: [
+                              Text(
+                                details,                             
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  color: Color.fromARGB(250, 255, 255, 255),
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),

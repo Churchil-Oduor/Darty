@@ -4,8 +4,8 @@ import 'package:web_amin/components/forms/ExecForm.dart';
 import 'package:web_amin/components/side_panel.dart';
 import 'package:web_amin/components/work_area.dart';
 
-
 enum AREA { work_area, form }
+
 class Dashboard extends StatefulWidget {
   Dashboard({super.key});
 
@@ -59,6 +59,7 @@ class _DashboardState extends State<Dashboard> {
                     {
                       setState(() {
                         table_id = "tasks";
+                        display = AREA.work_area;
                       });
                     }
                     break;
@@ -66,6 +67,7 @@ class _DashboardState extends State<Dashboard> {
                     {
                       setState(() {
                         table_id = "exec";
+                        display = AREA.work_area;
                       });
                     }
                     break;
@@ -73,6 +75,7 @@ class _DashboardState extends State<Dashboard> {
                     {
                       setState(() {
                         table_id = "ets&ministries";
+                        display = AREA.work_area;
                       });
                     }
                     break;
@@ -80,15 +83,18 @@ class _DashboardState extends State<Dashboard> {
                     {
                       setState(() {
                         table_id = "accounts";
+                        display = AREA.work_area;
                       });
                     }
                     break;
 
-                  case "Suggestions":
+                  case "Messages":
                     {
                       setState(() {
                         table_id = "msgs";
+                        display = AREA.form;
                       });
+                  
                     }
                     break;
                 }
@@ -97,10 +103,12 @@ class _DashboardState extends State<Dashboard> {
           ),
 
           ///Work Area
-          Expanded(flex: 4, child: WorkArea(table_id: table_id, display: this.display,)),
+          Expanded(
+            flex: 4,
+            child: WorkArea(table_id: table_id, display: this.display),
+          ),
         ],
       ),
     );
   }
 }
-

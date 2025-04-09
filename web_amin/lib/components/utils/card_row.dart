@@ -20,6 +20,7 @@ class CardRow extends StatelessWidget {
               card_color: Colors.amber,
               onClick: () => {print("clicked 1")},
               title: "Executive Committees",
+              details: "\n\n\nMain                        10 members",
             ),
           ),
           SizedBox(width: grid_spacing),
@@ -30,6 +31,8 @@ class CardRow extends StatelessWidget {
               card_color: const Color.fromARGB(255, 240, 55, 41),
               onClick: () => {print("clicked 2")},
               title: "ETs & Ministries",
+              details:
+                  "\nETs                        \t\t\t\t\t\t\t\t\t\t\t10\nMinistries                        20\nSub-Committees            10",
             ),
           ),
           SizedBox(width: grid_spacing),
@@ -40,6 +43,8 @@ class CardRow extends StatelessWidget {
               card_color: Colors.blue,
               onClick: () => {},
               title: "Students & Associates",
+              details:
+                  "\nStudents in Session        1000\nStudents out of Session   500\nAssociates                        1000",
             ),
           ),
         ],
