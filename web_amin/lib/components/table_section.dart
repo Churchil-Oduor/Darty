@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:web_amin/components/tables/ets_min_subcom.dart';
-import 'package:web_amin/components/tables/exec.dart';
+import 'package:web_amin/components/tables/main_exec.dart';
 import 'package:web_amin/components/tables/tasks.dart';
 import 'package:web_amin/pages/Dashboard.dart';
 
@@ -15,7 +15,7 @@ class TableSection extends StatelessWidget {
     } else if (table_id == "exec") {
       return MainExec(manageDisplay: manageDisplay,);
     } else if (table_id == "ets&ministries") {
-      return EtsMinSubcom();
+      return EtsMinSubcom(manageDisplay: manageDisplay,);
     } else {
       return Row();
     }

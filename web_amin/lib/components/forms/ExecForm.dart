@@ -59,13 +59,7 @@ class _ExecformState extends State<Execform> {
                 child: Container(
                   child: Row(
                     children: [
-                      Text(
-                        "Role Management",
-                        style: TextStyle(
-                          fontSize: 13,
-                          
-                        ),
-                      ),
+                      Text("Role Management", style: TextStyle(fontSize: 13)),
                     ],
                   ),
                 ),
@@ -112,6 +106,8 @@ class _ExecformState extends State<Execform> {
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     labelText: "Enter Phone",
+                    prefix: Text("+254 "),
+
                     labelStyle: TextStyle(fontSize: font_size),
                     border: OutlineInputBorder(),
                     contentPadding: EdgeInsets.symmetric(

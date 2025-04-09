@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:web_amin/pages/Dashboard.dart';
 
 const double border_radius = 10;
 
@@ -17,7 +18,7 @@ class EtsSubcomMin extends StatelessWidget {
         ),
         child: Center(
           child: Column(
-            mainAxisSize: MainAxisSize.min, 
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Padding(
@@ -36,19 +37,27 @@ class EtsSubcomMin extends StatelessWidget {
                 defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                 children: [
                   const TableRow(
-                  
                     children: [
                       Padding(
                         padding: EdgeInsets.all(10.0),
-                        child: Text("Role", style: TextStyle(fontWeight: FontWeight.bold)),
+                        child: Text(
+                          "Role",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
                       ),
                       Padding(
                         padding: EdgeInsets.all(10.0),
-                        child: Text("Name", style: TextStyle(fontWeight: FontWeight.bold)),
+                        child: Text(
+                          "Name",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
                       ),
                       Padding(
                         padding: EdgeInsets.all(10.0),
-                        child: Text("Action", style: TextStyle(fontWeight: FontWeight.bold)),
+                        child: Text(
+                          "Action",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ],
                   ),
@@ -69,10 +78,14 @@ class EtsSubcomMin extends StatelessWidget {
                           child: Align(
                             alignment: Alignment.centerLeft,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                          
+                              },
                               style: ElevatedButton.styleFrom(
                                 minimumSize: const Size(80, 33),
-                                padding: const EdgeInsets.symmetric(horizontal: 12),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 12,
+                                ),
                               ),
                               child: const Text(
                                 "Manage",

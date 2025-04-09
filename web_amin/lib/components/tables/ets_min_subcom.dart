@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:web_amin/pages/Dashboard.dart';
 
 const double general_pad = 15;
 const double border_radius = 10;
 
 class EtsMinSubcom extends StatefulWidget {
-  EtsMinSubcom({super.key});
+  final Function(AREA, String) manageDisplay;
+  EtsMinSubcom({super.key, required this.manageDisplay});
 
   @override
   State<EtsMinSubcom> createState() => _EtsMinSubcomState();
@@ -106,7 +108,6 @@ class _EtsMinSubcomState extends State<EtsMinSubcom> {
                 borderRadius: BorderRadius.circular(border_radius),
               ),
               child: Column(
-                
                 children: [
                   Row(
                     children: [
@@ -124,17 +125,22 @@ class _EtsMinSubcomState extends State<EtsMinSubcom> {
                         0: FlexColumnWidth(),
                         1: FlexColumnWidth(),
                       },
-                      defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                      defaultVerticalAlignment:
+                          TableCellVerticalAlignment.middle,
                       children: [
                         TableRow(
-                          children: [Text(table_title[0]), Text(table_title[1])],
+                          children: [
+                            Text(table_title[0]),
+                            Text(table_title[1]),
+                          ],
                         ),
                         ...List.generate(
                           4,
                           (value) => TableRow(
                             children: [
-                              
-                              TableCell(child: Text("South Rift Evangelistic Team")),
+                              TableCell(
+                                child: Text("South Rift Evangelistic Team"),
+                              ),
                               TableCell(
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(
@@ -145,7 +151,9 @@ class _EtsMinSubcomState extends State<EtsMinSubcom> {
                                         Alignment
                                             .centerLeft, // or centerRight, as you prefer
                                     child: ElevatedButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        widget.manageDisplay(AREA.form, "ets_subcom");
+                                      },
                                       style: ElevatedButton.styleFrom(
                                         minimumSize: Size(
                                           80,
